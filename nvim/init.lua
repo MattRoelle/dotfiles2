@@ -1,8 +1,9 @@
 vim.cmd([[
 set number
-colorscheme orbital
 let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
 let g:conjure#client#fennel#stdio#command = "love ./"
+
+colorscheme industry
 
 inoremap jj <ESC>
 
@@ -91,6 +92,11 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'lukas-reineke/cmp-rg'
+  use 'tikhomirov/vim-glsl'
+
+  use 'vim-airline/vim-airline'
+  use 'vim-airline/vim-airline-themes'
+
 
 
   use {
