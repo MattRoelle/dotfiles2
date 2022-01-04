@@ -3,7 +3,8 @@ set number
 let g:conjure#filetype#fennel = "conjure.client.fennel.stdio"
 let g:conjure#client#fennel#stdio#command = "love ./"
 
-colorscheme industry
+set background=dark
+colorscheme jellybeans-black
 
 inoremap jj <ESC>
 
@@ -22,8 +23,12 @@ nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 
-nnoremap <C-q> :vertical resize -5<CR>
-nnoremap <C-w> :vertical resize +5<CR>
+inoremap <C-l> λ
+
+nnoremap <C-q> :vertical resize -8<CR>
+nnoremap <C-w> :vertical resize +8<CR>
+
+nnoremap <leader>a :Goyo 160<CR>
 
 highlight NormalFloat ctermbg=black guibg=black
 
@@ -72,9 +77,15 @@ cmp.setup({
 return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+
+  use {
+    'rktjmp/hotpot.nvim',
+    config = function() require("hotpot") end
+  }
+
+  use 'bakpakin/fennel.vim'
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
-  use 'bakpakin/fennel.vim'
   use 'eraserhd/parinfer-rust'
   use 'Olical/conjure'
   use 'andreasvc/vim-256noir'
@@ -84,7 +95,7 @@ return require('packer').startup(function()
   use 'rafi/awesome-vim-colorschemes'
   use 'xolox/vim-misc'
   use 'xolox/vim-colorscheme-switcher'
-
+  use 'nvim-treesitter/nvim-treesitter'
   use 'hrsh7th/nvim-cmp'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -93,10 +104,10 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-cmdline'
   use 'lukas-reineke/cmp-rg'
   use 'tikhomirov/vim-glsl'
-
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
-
+  -- use 'vim-airline/vim-airline'
+  -- use 'vim-airline/vim-airline-themes'
+  use 'junegunn/goyo.vim'
+  use 'ggandor/lightspeed.nvim'
 
 
   use {

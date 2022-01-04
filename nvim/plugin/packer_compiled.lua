@@ -57,7 +57,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -124,6 +124,22 @@ _G.packer_plugins = {
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/fzf.vim",
     url = "https://github.com/junegunn/fzf.vim"
   },
+  ["goyo.vim"] = {
+    loaded = true,
+    path = "/home/matt/.local/share/nvim/site/pack/packer/start/goyo.vim",
+    url = "https://github.com/junegunn/goyo.vim"
+  },
+  ["hotpot.nvim"] = {
+    config = { "\27LJ\2\n&\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\vhotpot\frequire\0" },
+    loaded = true,
+    path = "/home/matt/.local/share/nvim/site/pack/packer/start/hotpot.nvim",
+    url = "https://github.com/rktjmp/hotpot.nvim"
+  },
+  ["lightspeed.nvim"] = {
+    loaded = true,
+    path = "/home/matt/.local/share/nvim/site/pack/packer/start/lightspeed.nvim",
+    url = "https://github.com/ggandor/lightspeed.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -140,6 +156,11 @@ _G.packer_plugins = {
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
     url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -149,6 +170,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["papercolor-theme"] = {
+    loaded = true,
+    path = "/home/matt/.local/share/nvim/site/pack/packer/start/papercolor-theme",
+    url = "https://github.com/NLKNguyen/papercolor-theme"
   },
   ["parinfer-rust"] = {
     loaded = true,
@@ -170,6 +196,11 @@ _G.packer_plugins = {
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
+  ["vim-glsl"] = {
+    loaded = true,
+    path = "/home/matt/.local/share/nvim/site/pack/packer/start/vim-glsl",
+    url = "https://github.com/tikhomirov/vim-glsl"
+  },
   ["vim-misc"] = {
     loaded = true,
     path = "/home/matt/.local/share/nvim/site/pack/packer/start/vim-misc",
@@ -183,6 +214,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: hotpot.nvim
+time([[Config for hotpot.nvim]], true)
+try_loadstring("\27LJ\2\n&\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\vhotpot\frequire\0", "config", "hotpot.nvim")
+time([[Config for hotpot.nvim]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
